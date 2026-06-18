@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "a3a72988-e909-4da5-9bf5-0bb93ab138ea",
+		"name": "Minibootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48695449",
+		"_collection_link": "https://justinrpangestu-4416131.postman.co/workspace/Justin-Ryan-Pangestu's-Workspac~c70a24df-a94c-4d32-8f23-a44d07c532ad/collection/48695449-a3a72988-e909-4da5-9bf5-0bb93ab138ea?action=share&source=collection_link&creator=48695449"
+	},
+	"item": [
+		{
+			"name": "Post Bank account data request.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Assertion 1: Validasi Status Code sukses (biasanya 200 atau 201)\r",
+							"pm.test(\"Status code is 200 or 201\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"// Assertion 2: Validasi Response Body mengandung data yang dikirim (contoh: bank_code)\r",
+							"pm.test(\"Response body contains correct bank code\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('bank_code');\r",
+							"    pm.expect(jsonData.bank_code).to.eql(\"BCA\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRIg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTIvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xhaEhqanc6"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"bank_account_number\": \"12345670\",\r\n \"bank_code\": \"BCA\",\r\n \"given_name\": \"FIRA DIYANKA\",\r\n \"surname\": \"FIRA DIYANKA\",\r\n \"reference_id\": \"testing123-456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests",
+					"protocol": "https",
+					"host": [
+						"api",
+						"iluma",
+						"ai"
+					],
+					"path": [
+						"v1.1",
+						"identity",
+						"bank_account_data_requests"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'https://api.iluma.ai/v1.1/identity/bank_account_data_requests' \\\r\n --header 'Content-Type: application/json' \\\r\n --header 'Authorization: Basic aWx1bWFfZGV2ZWxvcG1lbnRfRIg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTIvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xhaEhqanc6' \\\r\n --data '{\r\n \"bank_account_number\": \"12345670\",\r\n \"bank_code\": \"BCA\",\r\n \"given_name\": \"FIRA DIYANKA\",\r\n \"surname\": \"FIRA DIYANKA\",\r\n \"reference_id\": \"testing123-456\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bank account data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Assertion 1: Validasi Status Code sukses (200 OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Assertion 2: Validasi Response Body mencocokkan nama akun bank\r",
+							"pm.test(\"Response body contains correct student name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.given_name).to.eql(\"FIRA DIYANKA\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRIg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTIvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xhaEhqanc6"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests/bknv_6a2963f06540322bbff05a51",
+					"protocol": "https",
+					"host": [
+						"api",
+						"iluma",
+						"ai"
+					],
+					"path": [
+						"v1.1",
+						"identity",
+						"bank_account_data_requests",
+						"bknv_6a2963f06540322bbff05a51"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'https://api.iluma.ai/v1.1/identity/bank_account_data_requests/bknv_6a2963f06540322bbff05a51' \\\r\n --header 'Authorization: Basic aWx1bWFfZGV2ZWxvcG1lbnRfRIg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTIvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xhaEhqanc6'"
+			},
+			"response": []
+		}
+	]
+}
