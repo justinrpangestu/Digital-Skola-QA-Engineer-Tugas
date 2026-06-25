@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-25T06:28:01.894Z",
+    "end": "2026-06-25T06:28:12.564Z",
+    "duration": 10670,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "397b74df-1194-4320-81f0-02d69ce86642",
+      "title": "",
+      "fullFile": "C:\\Users\\user\\Digital-Skola-QA-Engineer-Tugas\\tests\\test-saucedemo.js",
+      "file": "\\tests\\test-saucedemo.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "716a2f87-d7dd-4c0e-a8e8-cd9aa62d5dfe",
+          "title": "Tugas Web UI Automation - SauceDemo",
+          "fullFile": "C:\\Users\\user\\Digital-Skola-QA-Engineer-Tugas\\tests\\test-saucedemo.js",
+          "file": "\\tests\\test-saucedemo.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Tugas Web UI Automation - SauceDemo\"",
+              "fullTitle": "Tugas Web UI Automation - SauceDemo \"before all\" hook in \"Tugas Web UI Automation - SauceDemo\"",
+              "timedOut": false,
+              "duration": 7251,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "77d56ad5-27a2-430f-be6d-3257e1f5f627",
+              "parentUUID": "716a2f87-d7dd-4c0e-a8e8-cd9aa62d5dfe",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Tugas Web UI Automation - SauceDemo\"",
+              "fullTitle": "Tugas Web UI Automation - SauceDemo \"after all\" hook in \"Tugas Web UI Automation - SauceDemo\"",
+              "timedOut": false,
+              "duration": 60,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "e470c882-7eca-40d6-b67f-7b3776156b42",
+              "parentUUID": "716a2f87-d7dd-4c0e-a8e8-cd9aa62d5dfe",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Sukses Login",
+              "fullTitle": "Tugas Web UI Automation - SauceDemo Sukses Login",
+              "timedOut": false,
+              "duration": 3129,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Akses halaman web\nawait driver.get('https://www.saucedemo.com');\n// Mendefinisikan element locators\nlet inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'));\nlet inputPassword = await driver.findElement(By.xpath('//*[@data-test=\"password\"]'));\nlet buttonLogin = await driver.findElement(By.className('submit-button btn_action'));\n// Menjalankan actions\nawait inputUsername.sendKeys('standard_user');\nawait inputPassword.sendKeys('secret_sauce');\nawait buttonLogin.click();\n// Assertion / Validasi: Memastikan elemen judul halaman produk ditampilkan (sukses login)\nlet titleElement = await driver.findElement(By.className('title'));\nlet isDisplayed = await titleElement.isDisplayed();\nassert.strictEqual(isDisplayed, true);",
+              "err": {},
+              "uuid": "ca66b96d-4919-40de-9113-881d6eae5a60",
+              "parentUUID": "716a2f87-d7dd-4c0e-a8e8-cd9aa62d5dfe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Urutkan Produk dari A-Z",
+              "fullTitle": "Tugas Web UI Automation - SauceDemo Urutkan Produk dari A-Z",
+              "timedOut": false,
+              "duration": 213,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Mencari elemen dropdown pengurutan\nlet sortDropdown = await driver.findElement(By.className('product_sort_container'));\nawait sortDropdown.click();\n// Memilih opsi A to Z (value \"az\")\nlet optionAZ = await driver.findElement(By.css('option[value=\"az\"]'));\nawait optionAZ.click();\n// Assertion / Validasi: Memastikan pengurutan saat ini adalah Name (A to Z)\nlet activeOption = await driver.findElement(By.className('active_option')).getText();\nassert.strictEqual(activeOption, 'Name (A to Z)');",
+              "err": {},
+              "uuid": "2d577fb4-0a49-402d-8b3b-c1c7c870c779",
+              "parentUUID": "716a2f87-d7dd-4c0e-a8e8-cd9aa62d5dfe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ca66b96d-4919-40de-9113-881d6eae5a60",
+            "2d577fb4-0a49-402d-8b3b-c1c7c870c779"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3342,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
